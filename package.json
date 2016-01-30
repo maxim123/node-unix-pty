@@ -1,14 +1,18 @@
 {
-  "name": "pty.js",
-  "description": "Pseudo terminals for node.",
-  "author": "Christopher Jeffrey",
-  "version": "0.3.0",
+  "name": "unix-pty",
+  "description": "Opens Pseudo Terminal Pairs",
+  "os": "!win32",
+  "author": "Vadim Macagon",
+  "version": "0.1.0",
   "license": "MIT",
-  "main": "./index.js",
-  "repository": "git://github.com/chjj/pty.js.git",
-  "homepage": "https://github.com/chjj/pty.js",
+  "main": "lib/pty.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enlight/node-unix-pty.git"
+  },
+  "homepage": "https://github.com/enlight/node-unix-pty",
   "bugs": {
-    "url": "https://github.com/chjj/pty.js/issues"
+    "url": "https://github.com/enlight/node-unix-pty/issues"
   },
   "keywords": [
     "pty",
@@ -18,11 +22,6 @@
   "scripts": {
     "test": "NODE_ENV=test mocha -R spec"
   },
-  "tags": [
-    "pty",
-    "tty",
-    "terminal"
-  ],
   "dependencies": {
     "extend": "~1.2.1",
     "nan": "2.0.5"
