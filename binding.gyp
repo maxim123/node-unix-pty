@@ -5,23 +5,7 @@
       '<!(node -e "require(\'nan\')")'
     ],
     'conditions': [
-      ['OS=="win"', {
-        # "I disabled those warnings because of winpty" - @peters (GH-40)
-        'msvs_disabled_warnings': [ 4506, 4530 ],
-        'include_dirs' : [
-          'deps/winpty/include',
-        ],
-        'dependencies' : [
-          'deps/winpty/winpty.gyp:winpty-agent',
-          'deps/winpty/winpty.gyp:winpty',
-        ],
-        'sources' : [
-          'src/win/pty.cc'
-        ],
-        'libraries': [
-          'shlwapi.lib'
-        ],
-      }, { # OS!="win"
+      ['OS!="win"', {
         'sources': [
           'src/unix/pty.cc'
         ],
