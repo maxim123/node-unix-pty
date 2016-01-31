@@ -1,7 +1,6 @@
 {
   "name": "unix-pty",
   "description": "Opens Pseudo Terminal Pairs",
-  "os": "!win32",
   "author": "Vadim Macagon",
   "version": "0.1.0",
   "license": "MIT",
