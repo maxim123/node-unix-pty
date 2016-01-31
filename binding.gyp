@@ -1,8 +1,8 @@
 {
-  'conditions': [
-    ['OS!="win"', {
-      'targets': [{
-        'target_name': 'pty',
+  'targets': [{
+    'target_name': 'pty',
+    'conditions': [
+      ['OS!="win"', {
         'include_dirs' : [
           '<!(node -e "require(\'nan\')")'
         ],
@@ -25,6 +25,6 @@
           }]
         ]
       }]
-    }]
-  ]
+    ]
+  }],
 }
