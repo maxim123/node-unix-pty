@@ -8,3 +8,5 @@ Makefile.gyp
 node_modules/
 test/
 *.node
+typings/
+tsconfig.json

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "lib/pty.js",
+  "typings": "lib/pty.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/enlight/node-unix-pty.git"
