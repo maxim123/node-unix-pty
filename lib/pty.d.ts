@@ -100,7 +100,7 @@ export function spawn(file?: string, args?: string[], opt?: TerminalOptions): Te
 export function open(opt?: { cols?: number; rows?: number }): Terminal;
     
 // Internal stuff that probably isn't very useful but is exported by pty.js
-export var native: {
+export function native(): {
     fork(
         file: string, args: string[], env: any, cwd: string, cols: number, rows: number,
         uid?: number, gid?: number
@@ -113,4 +113,4 @@ export var native: {
     process(fd: number, tty: string): string;
         
     resize(fd: number, cols: number, rows: number): void;
-}
+};
