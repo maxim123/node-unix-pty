@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2015-2016 Vadim Macagon
 // MIT License, see LICENSE file for full terms.
 
+/// <reference types="node" />
+
 /** Options that can be used when creating a new pseudo-terminal. */
 interface TerminalOptions {
     name?: string;
@@ -12,10 +14,9 @@ interface TerminalOptions {
     gid?: number;
 }
 
-import * as stream from 'stream';
-import * as net from 'net';
+import * as net from "net";
 
-export class Terminal implements stream.Stream {
+export class Terminal {
     /** Read-only name of the terminal. */
     name: string;
     /** Read-only number of columns in the terminal. */
@@ -74,15 +75,11 @@ export class Terminal implements stream.Stream {
     
     // NodeJS EventEmitter interface
     
-    addListener(event: string, listener: Function): NodeJS.EventEmitter;
-    on(event: string, listener: Function): NodeJS.EventEmitter;
-    once(event: string, listener: Function): NodeJS.EventEmitter;
-    removeListener(event: string, listener: Function): NodeJS.EventEmitter;
-    removeAllListeners(event?: string): NodeJS.EventEmitter;
-    // NOTE: this method is not actually defined in pty.js
-    setMaxListeners(n: number): void;
-    listeners(event: string): Function[];
-    emit(event: string, ...args: any[]): boolean;
+    addListener(event: string, listener: Function): this;
+    on(event: string, listener: Function): this;
+    once(event: string, listener: Function): this;
+    removeListener(event: string, listener: Function): this;
+    removeAllListeners(event?: string): this;
 }
 
 /** 
