@@ -231,6 +231,24 @@ NAN_METHOD(PtyFork) {
           _exit(1);
         }
       }
+      
+      // Ensure that terminal echo is switched off so that we
+      // do not get back from the spawned process the same
+      // messages that we have sent it.
+      // Thanks to https://github.com/chjj/pty.js/issues/18
+      struct termios orig_termios;
+      if (tcgetattr (STDIN_FILENO, &orig_termios) < 0) {
+        perror ("ERROR getting current terminal's attributes");
+        _exit(1);
+      }
+
+      orig_termios.c_lflag &= ~(ECHO | ECHOE | ECHOK | ECHONL);
+      // orig_termios.c_oflag &= ~(ONLCR);
+
+      if (tcsetattr (STDIN_FILENO, TCSANOW, &orig_termios) < 0) {
+        perror ("ERROR setting current terminal's attributes");
+        _exit(1);
+      }
 
       pty_execvpe(argv[0], argv, env);
 
